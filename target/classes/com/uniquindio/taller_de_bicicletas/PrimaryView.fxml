@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<TabPane prefHeight="650.0" prefWidth="850.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.taller_de_bicicletas.viewController.PrimaryController">
+    <tabs>
+        <!-- TAB 1: CLIENTES -->
+        <Tab text="Gestión de Clientes">
+            <content>
+                <VBox spacing="10.0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+                    <children>
+                        <Label text="Registro y Control de Clientes">
+                            <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="30.0" />
+                                <RowConstraints minHeight="30.0" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Identificación:" />
+                                <TextField fx:id="txtClienteID" GridPane.columnIndex="1" />
+                                <Label text="Nombre Completo:" GridPane.columnIndex="2" />
+                                <TextField fx:id="txtClienteNombre" GridPane.columnIndex="3" />
+                                <Label text="Teléfono:" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtClienteTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="Dirección:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtClienteDireccion" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#onAgregarCliente" text="Agregar Cliente" />
+                                <Button mnemonicParsing="false" onAction="#onEliminarCliente" text="Eliminar Seleccionado" />
+                            </children>
+                        </HBox>
+                        <TableView fx:id="tblClientes" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colClienteID" prefWidth="120.0" text="Identificación" />
+                                <TableColumn fx:id="colClienteNombre" prefWidth="220.0" text="Nombre" />
+                                <TableColumn fx:id="colClienteTelefono" prefWidth="150.0" text="Teléfono" />
+                                <TableColumn fx:id="colClienteDireccion" prefWidth="280.0" text="Dirección" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </content>
+        </Tab>
+
+        <!-- TAB 2: MECÁNICOS -->
+        <Tab text="Mecánicos">
+            <content>
+                <VBox spacing="10.0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+                    <children>
+                        <Label text="Gestión de Mecánicos">
+                            <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                            </columnConstraints>
+                            <children>
+                                <Label text="Identificación:" />
+                                <TextField fx:id="txtMecanicoID" GridPane.columnIndex="1" />
+                                <Label text="Nombre:" GridPane.columnIndex="2" />
+                                <TextField fx:id="txtMecanicoNombre" GridPane.columnIndex="3" />
+                                <Label text="Teléfono:" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtMecanicoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="Código Interno:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtMecanicoCodigo" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <Label text="Especialidad:" GridPane.rowIndex="2" />
+                                <ComboBox fx:id="cbMecanicoEspecialidad" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            </children>
+                        </GridPane>
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#onAgregarMecanico" text="Agregar Mecánico" />
+                                <Button mnemonicParsing="false" onAction="#onEliminarMecanico" text="Eliminar Seleccionado" />
+                            </children>
+                        </HBox>
+                        <TableView fx:id="tblMecanicos" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colMecanicoID" prefWidth="120.0" text="Identificación" />
+                                <TableColumn fx:id="colMecanicoNombre" prefWidth="200.0" text="Nombre" />
+                                <TableColumn fx:id="colMecanicoTelefono" prefWidth="120.0" text="Teléfono" />
+                                <TableColumn fx:id="colMecanicoCodigo" prefWidth="100.0" text="Código" />
+                                <TableColumn fx:id="colMecanicoEspecialidad" prefWidth="200.0" text="Especialidad" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </content>
+        </Tab>
+
+        <!-- TAB 3: BICICLETAS -->
+        <Tab text="Bicicletas">
+            <content>
+                <VBox spacing="10.0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+                    <children>
+                        <Label text="Registro de Bicicletas">
+                            <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                            </columnConstraints>
+                            <children>
+                                <Label text="Marca:" />
+                                <TextField fx:id="txtBiciMarca" GridPane.columnIndex="1" />
+                                <Label text="Color:" GridPane.columnIndex="2" />
+                                <TextField fx:id="txtBiciColor" GridPane.columnIndex="3" />
+                                <Label text="Núm. Serial:" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtBiciSerial" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="Antigüedad:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtBiciAntiguedad" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <Label text="Tipo:" GridPane.rowIndex="2" />
+                                <ComboBox fx:id="cbBiciTipo" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label text="Propietario (Cliente):" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <ComboBox fx:id="cbBiciCliente" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                            </children>
+                        </GridPane>
+                        <Button mnemonicParsing="false" onAction="#onAgregarBicicleta" text="Registrar Bicicleta" />
+                        <TableView fx:id="tblBicicletas" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colBiciSerial" prefWidth="130.0" text="Serial / Marco" />
+                                <TableColumn fx:id="colBiciMarca" prefWidth="130.0" text="Marca" />
+                                <TableColumn fx:id="colBiciColor" prefWidth="110.0" text="Color" />
+                                <TableColumn fx:id="colBiciTipo" prefWidth="120.0" text="Tipo" />
+                                <TableColumn fx:id="colBiciAntiguedad" prefWidth="110.0" text="Antigüedad" />
+                                <TableColumn fx:id="colBiciCliente" prefWidth="180.0" text="Cliente Propietario" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </content>
+        </Tab>
+
+        <!-- TAB 4: ÓRDENES DE SERVICIO -->
+        <Tab text="Órdenes de Servicio">
+            <content>
+                <VBox spacing="10.0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+                    <children>
+                        <Label text="Creación y Consulta de Órdenes">
+                            <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                                <ColumnConstraints minWidth="100.0" />
+                                <ColumnConstraints prefWidth="250.0" />
+                            </columnConstraints>
+                            <children>
+                                <Label text="Código Orden:" />
+                                <TextField fx:id="txtOrdenCodigo" GridPane.columnIndex="1" />
+                                <Label text="Fecha Ingreso:" GridPane.columnIndex="2" />
+                                <DatePicker fx:id="dpOrdenFecha" prefWidth="250.0" GridPane.columnIndex="3" />
+                                <Label text="Hora:" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtOrdenHora" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label text="Costo Total ($):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="txtOrdenCosto" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <Label text="Bicicleta:" GridPane.rowIndex="2" />
+                                <ComboBox fx:id="cbOrdenBici" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label text="Mecánico:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <ComboBox fx:id="cbOrdenMecanico" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                <Label text="Motivo:" GridPane.rowIndex="3" />
+                                <TextField fx:id="txtOrdenMotivo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Label text="Diagnóstico:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                <TextField fx:id="txtOrdenDiagnostico" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                <Label text="Trabajo Realizado:" GridPane.rowIndex="4" />
+                                <TextField fx:id="txtOrdenTrabajo" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4" />
+                            </children>
+                        </GridPane>
+                        <Button mnemonicParsing="false" onAction="#onCrearOrden" text="Crear Orden de Servicio" />
+                        <TableView fx:id="tblOrdenes" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colOrdenCodigo" prefWidth="75.0" text="Código" />
+                                <TableColumn fx:id="colOrdenFecha" prefWidth="100.0" text="Fecha" />
+                                <TableColumn fx:id="colOrdenBici" prefWidth="120.0" text="Bicicleta" />
+                                <TableColumn fx:id="colOrdenMecanico" prefWidth="140.0" text="Mecánico" />
+                                <TableColumn fx:id="colOrdenMotivo" prefWidth="150.0" text="Motivo" />
+                                <TableColumn fx:id="colOrdenTrabajo" prefWidth="150.0" text="Trabajo Realizado" />
+                                <TableColumn fx:id="colOrdenCosto" prefWidth="100.0" text="Costo Total" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </content>
+        </Tab>
+
+        <!-- TAB 5: CONSULTAS Y ALERTAS -->
+        <Tab text="Consultas y Alertas Stock">
+            <content>
+                <VBox spacing="15.0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+                    <children>
+                        <HBox spacing="20.0">
+                            <children>
+                                <!-- Consulta 1: Historial Bici -->
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Historial de Servicio por Bicicleta">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                        </Label>
+                                        <HBox spacing="5.0">
+                                            <children>
+                                                <TextField fx:id="txtBuscarSerialBici" promptText="Número Serial Bici" />
+                                                <Button mnemonicParsing="false" onAction="#onBuscarHistorialBici" text="Buscar Historial" />
+                                            </children>
+                                        </HBox>
+                                        <TableView fx:id="tblHistorialBici" prefHeight="200.0">
+                                            <columns>
+                                                <TableColumn fx:id="colHistCodigo" prefWidth="70.0" text="Código" />
+                                                <TableColumn fx:id="colHistMotivo" prefWidth="120.0" text="Motivo" />
+                                                <TableColumn fx:id="colHistTrabajo" prefWidth="150.0" text="Trabajo" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+
+                                <!-- Consulta 2: Agenda Mecánico -->
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Agenda de Servicio por Mecánico">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                        </Label>
+                                        <HBox spacing="5.0">
+                                            <children>
+                                                <TextField fx:id="txtBuscarIDMecanico" promptText="Identificación Mecánico" />
+                                                <Button mnemonicParsing="false" onAction="#onBuscarAgendaMecanico" text="Buscar Agenda" />
+                                            </children>
+                                        </HBox>
+                                        <TableView fx:id="tblAgendaMecanico" prefHeight="200.0">
+                                            <columns>
+                                                <TableColumn fx:id="colAgendaCodigo" prefWidth="70.0" text="Código" />
+                                                <TableColumn fx:id="colAgendaMotivo" prefWidth="120.0" text="Motivo" />
+                                                <TableColumn fx:id="colAgendaTrabajo" prefWidth="150.0" text="Trabajo" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Alertas de Stock Bajo -->
+                        <VBox spacing="5.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label text="Alertas: Repuestos con Stock Bajo (&lt;= 5 unidades)" textFill="RED">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Label>
+                                <TableView fx:id="tblStockBajo" prefHeight="180.0">
+                                    <columns>
+                                        <TableColumn fx:id="colRepuestoNombre" prefWidth="300.0" text="Nombre Repuesto" />
+                                        <TableColumn fx:id="colRepuestoStock" prefWidth="150.0" text="Cantidad Stock" />
+                                        <TableColumn fx:id="colRepuestoPrecio" prefWidth="150.0" text="Precio Unitario" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
